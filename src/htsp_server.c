@@ -2331,7 +2331,7 @@ htsp_method_getTicket(htsp_connection_t *htsp, htsmsg_t *in)
     if (!htsp_user_access_channel(htsp, ch))
       return htsp_error(htsp, N_("User does not have access"));
 
-    snprintf(path, sizeof(path), "/tvh/stream/channelid/%d", id);
+    snprintf(path, sizeof(path), "/stream/channelid/%d", id);
     ticket = access_ticket_create(path, htsp->htsp_granted_access);
   } else if(!htsmsg_get_u32(in, "dvrId", &id)) {
     if (!(de = dvr_entry_find_by_id(id)))
